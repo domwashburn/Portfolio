@@ -1,0 +1,326 @@
+// ---------------------------- //
+//  General Typographic Styles  //
+// ---------------------------- //
+
+body {
+  font-family: $font-stack;
+}
+
+:focus {
+outline-color: color("blue", 50, $alpha: 0.85);
+outline-offset: 1px;
+outline-style: solid;
+outline-width: 2px;
+}
+// styling of html tags specfic to text.
+strong {
+font-weight: font-weight("bold");
+}
+
+// -------- //
+//  Titles  //
+// -------- //
+
+.title {
+&--xxs {
+  font-size: ts(-2);
+  letter-spacing: .04em;
+  line-height: $baseline-height;
+}
+&--xs {
+  font-size: ts(-1);
+  letter-spacing: .04em;
+  line-height: $baseline-height;
+}
+&--sm {
+  font-size: ts(0);
+  letter-spacing: .04em;
+  line-height: $baseline-height;
+}
+&--md {
+  font-size: ts(2);
+  line-height: $baseline-height;
+}
+&--lg {
+  font-size: ts(4);
+  line-height: $baseline-height;
+}
+&--xl {
+  font-size: ts(5);
+  line-height: $baseline-height;
+}
+
+&--xxl {
+  font-size: ts(6);
+  line-height: $baseline-height;
+}
+}
+
+// ---------------------------- //
+//  Type Setting for Copy Text  //
+// ---------------------------- //
+
+@mixin body-copy() {
+letter-spacing: 0.04em;
+// line-height: 1.65rem;
+line-height: 1.45;
+padding-bottom: 1em;
+}
+
+.body-copy {
+&--xs {
+  @include body-copy();
+  font-size: ts(-1);
+}
+&--sm {
+  @include body-copy();
+  font-size: ts(0);
+}
+&--md {
+  @include body-copy();
+  font-size: ts(1);
+}
+}
+
+// TO DO: Re-evaluate this speci
+.copy {
+&--table {
+  font-size: ts(-1);
+  color: palette("secondary", "dark");
+  white-space: nowrap;
+  // font-weight: font-weight("roman");
+}
+&--tool-tip {
+  font-size: ts(-2);
+  font-weight: font-weight("roman");
+}
+&--info,  &--success,  &--warn,  &--error {
+  @include font-weight-style("roman");
+}
+}
+
+// ------------------------------ //
+//  General Text Utility Classes  //
+// ------------------------------ //
+
+.text {
+// copy sizing
+&--micro {
+  font-size: type-scale("custom", -3);
+  font-weight: font-weight("roman");
+  // line-height: 1.33rem;
+  letter-spacing: .15rem;
+}
+&--sm {
+  font-size: ts(-1);
+  // line-height: 1.33rem;
+  // padding-bottom: 0.66rem;
+  font-weight: font-weight("roman");
+}
+&--md {
+  font-size: type-scale("mobile", 0);
+  // line-height: 1.33rem;
+  padding-bottom: 0.66rem;
+  // font-weight: font-weight("roman");
+}
+
+// copy weights
+&--roman {
+  @include font-weight-style("roman");
+}
+&--medium {
+  @include font-weight-style("medium");
+}
+&--bold {
+  @include font-weight-style("bold");
+}
+// copy specific to status
+&--link {
+  // display:inline-block;
+  cursor: pointer;
+  // height: to-unit(16px, "em");
+  text-decoration: none;
+  transition:
+  color 250ms ease-out,
+  border-color 200ms ease-out;
+  // padding-bottom: 0.1em;
+  outline: none;
+
+  &:hover, &:active, &:focus {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    height: to-unit(16px, "em");
+  }
+}
+}
+
+// ------------- //
+//  Input Label  //
+// ------------- //
+
+.input-label {
+font-weight: font-weight("medium");
+font-size: ts(0);
+}
+
+// ------- //
+//  Lists  //
+// ------- //
+
+.key-value-list {
+&__item {
+  margin-bottom: to-unit(12px, "rem");
+  display: flex;
+}
+&__key, &__value {
+  display: inline-block;
+  line-height: 1.33;
+}
+&__key {
+  width: 200px;
+  word-break: break-all;
+  margin-right: 1em;
+}
+&__value {
+  min-width: 100px;
+  color: palette("secondary", "dark");
+  word-break: break-word;
+}
+}
+
+// -------------- //
+//  Misc. Tables  //
+// -------------- //
+
+// one off copy: this isn"t ideal ...
+.table-header {
+display: inline-block;
+font-size: type-scale("custom", -2);
+font-weight: font-weight("bold");
+text-transform: uppercase;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+color: palette("base", "text");
+}
+
+// ----- //
+//  Data //
+// ----- //
+
+.fraction {
+display: flex;
+align-items: baseline;
+color: #6d7777;
+font-size: type-scale("custom", 0);
+font-weight: font-weight("light");
+letter-spacing: .1rem;
+&__numerator--lg  {
+  font-weight: font-weight("light");
+  font-size: type-scale("custom", 1);
+  color: palette("light-ui", "info");
+  display: inline-block;
+  & .fraction__divider {
+    font-size: 1.25em;
+    transform: translateY(0.12em);
+  }
+}
+&__divider {
+  font-size: 2em;
+  transform: translateY(0.2em);
+  display: inline-block;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  color: #AEB8B8;
+  font-weight: 100;
+}
+}
+
+// -------------- //
+//  Theme Colors  //
+// -------------- //
+
+.light-ui {
+color: palette("light-ui", "text-dark");
+.body-copy--xs,
+.body-copy--sm,
+.body-copy--md {
+  color: palette("light-ui", "text-medium");
+}
+.title--xxs,
+.title--xs,
+.title--sm,
+.title--md,
+.title--lg,
+.title--xl,
+.title--xxl {
+  color: palette("light-ui", "text-dark");
+}
+.text--link {
+  color: palette("light-ui", "active");
+  fill: palette("light-ui", "active");
+  border-bottom-color: transparent;
+  &:hover, &:active, &:focus {
+    color: palette("light-ui", "focus");
+    fill: palette("light-ui", "focus");
+    border-bottom-color: palette("light-ui", "focus");
+  }
+}
+.input-label {
+  color: palette("light-ui", "text-medium");
+}
+.copy--info {
+  color: palette("light-ui", "info");
+}
+.copy--success {
+  color: palette("light-ui", "success");
+}
+.copy--warn {
+  color: palette("light-ui", "warn");
+}
+.copy--error {
+  color: palette("light-ui", "error");
+}
+}
+.dark-ui {
+color: palette("dark-ui", "text-light");
+.body-copy--xs,
+.body-copy--sm,
+.body-copy--md {
+  color: palette("dark-ui", "text-medium");
+}
+.title--xxs,
+.title--xs,
+.title--sm,
+.title--md,
+.title--lg,
+.title--xl,
+.title--xxl {
+  color: palette("dark-ui", "text-light");
+}
+.text--link {
+  color: palette("dark-ui", "active");
+  fill: palette("dark-ui", "active");
+  border-bottom-color: transparent;
+  &:hover, &:active, &:focus {
+    color: palette("dark-ui", "focus");
+    fill: palette("dark-ui", "focus");
+    border-bottom-color: palette("dark-ui", "focus");
+  }
+}
+.input-label {
+  color: palette("dark-ui", "text-medium");
+}
+.copy--info {
+  color: palette("dark-ui", "info");
+}
+.copy--success {
+  color: palette("dark-ui", "success");
+}
+.copy--warn {
+  color: palette("dark-ui", "warn");
+}
+.copy--error {
+  color: palette("dark-ui", "error");
+}
+}

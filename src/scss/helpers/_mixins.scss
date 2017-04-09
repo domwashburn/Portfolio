@@ -1,0 +1,13 @@
+@mixin layer($layer-number) {
+  z-index: layer($layer-number);
+}
+
+@mixin font-weight-style($weight: null, $italic: true) {
+  @if $weight != null {font-weight: weight($weight)};
+  @if $italic and $weight != null {
+     &-italic {
+      @if $weight != null {font-weight: weight($weight)};
+      font-style: italic;
+    }
+  };
+}

@@ -1,3 +1,13 @@
-// Add custom styling here!
+// Reset all browser styling
+@import "helpers/reset";
+
+// Helper SCSS files
+@import "helpers/functions";
+@import "helpers/defaults";
+@import "helpers/mixins";
+@import "helpers/typography";
+@import "components/layout";
+
+// import custom styling below!
 
 body {background-color: #ff9c9c}
