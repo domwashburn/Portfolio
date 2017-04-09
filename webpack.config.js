@@ -183,6 +183,9 @@ module.exports = (env) => {
         ? resolvePath('gh-pages')
         : resolvePath('dist')
     },
+    resolve: {
+      extensions: [/*'',*/ '.js', '.jsx']
+    },
     externals: !__PROD__
       ? []
       :[
