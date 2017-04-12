@@ -6,8 +6,35 @@
 @import "helpers/defaults";
 @import "helpers/mixins";
 @import "helpers/typography";
-@import "components/layout";
 
 // import custom styling below!
 
-body {background-color: #ff9c9c}
+body {
+  font-family: "droid-sans-mono";
+  mix-blend-mode: difference;
+    color: hsla(0, 100%, 60%, 80%);
+    filter: hue-rotate(40deg);
+}
+
+.hue-rotate {
+  animation: hue-rotate 180s linear infinite;
+}
+.background {
+  z-index: -1;
+  top: 0;
+  left: 0;
+  position: absolute;
+  // z-index: -10;
+  background: linear-gradient(-14deg, #B3FFAB , #43C6AC);
+  width: 100vw;
+  height: 100vh;
+}
+
+@keyframes hue-rotate {
+  0% {
+    filter: hue-rotate();
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}

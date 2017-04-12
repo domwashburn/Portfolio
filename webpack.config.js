@@ -24,7 +24,7 @@ module.exports = (env) => {
   const rules = [];
 
   const jsLoader = {
-    test: /\.js$/,
+    test: /\.(js|jsx)$/,
     include: [resolvePath('src')],
     exclude: /node_modules/,
     use: 'babel-loader'
@@ -172,8 +172,8 @@ module.exports = (env) => {
   // after checking options for the build
   return {
     entry: !__PROD__
-      ? {'pc-starter-project': ['react-hot-loader/patch', resolvePath('./src/index.hot.js')]}
-      : {'pc-starter-project': resolvePath('./src/index.js')},
+      ? {'pc-starter-project': ['react-hot-loader/patch', resolvePath('./src/index.hot.jsx')]}
+      : {'pc-starter-project': resolvePath('./src/index.jsx')},
     output: {
       filename: !__PROD__
         ? '[name].js'

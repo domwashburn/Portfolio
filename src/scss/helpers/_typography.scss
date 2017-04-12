@@ -7,7 +7,7 @@ body {
 }
 
 :focus {
-outline-color: color("blue", 50, $alpha: 0.85);
+// outline-color: color("blue", 50, $alpha: 0.85);
 outline-offset: 1px;
 outline-style: solid;
 outline-width: 2px;
