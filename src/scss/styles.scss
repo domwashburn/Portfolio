@@ -8,7 +8,7 @@
 @import "helpers/typography";
 
 // import custom styling below!
-
+*, *:before, *:after { box-sizing: border-box; }
 body {
   font-family: $font-stack;
   font-weight: 200;
@@ -41,37 +41,42 @@ $color-2: #2ab28d;
 .title,
 .sub-title,
 .copy {
-  transition: font-size 250ms ease-in-out, padding 250ms ease-in-out ;
+  transition: font-size 150ms ease-out, padding 150ms ease-out ;
+}
+
+.welcome__copy {
+  transition: max-width 200ms ease-out;
 }
 
 .title {
-  font-size: ts(5);
-  @media (max-width: to-unit(1100px)) {
+  margin-bottom: ts(3);
+    font-size: ts(3);
+  @media (min-width: to-unit(970px)) {
     font-size: ts(4);
   }
-  @media (max-width: to-unit(790px)) {
-    font-size: ts(3);
+  @media (min-width: to-unit(1425px)) {
+    font-size: ts(5);
   }
 }
 .sub-title {
-  font-size: ts(3);
   line-height: 1.1;
-  margin-bottom: ts(0);
-  @media (max-width: to-unit(1100px)) {
+  margin-bottom: ts(1);
+    font-size: ts(1);
+  @media (min-width: to-unit(970px)) {
     font-size: ts(2);
   }
-  @media (max-width: to-unit(790px)) {
-    font-size: ts(1);
+  @media (min-width: to-unit(1425px)) {
+    font-size: ts(3);
   }
 }
 .copy {
-  font-size: ts(2);
   line-height: 1.25;
-  @media (max-width: to-unit(1100px)) {
+    font-size: ts(0);
+  @media (min-width: to-unit(970px)) {
     font-size: ts(1);
   }
-  @media (max-width: to-unit(790px)) {
-    font-size: ts(0);
+  @media (min-width: to-unit(1425px)) {
+    font-size: ts(2);
   }
 }
 .hue-rotate {
@@ -88,18 +93,22 @@ $color-2: #2ab28d;
 }
 
 .welcome__copy {
-  max-width: to-unit(1200px);
-  padding: ts(4) ts(4) ts(5) ts(4);
-  @media (max-width: to-unit(970px)) {
+    max-width: 1300px;
+    padding: ts(4) ts(4) ts(5) ts(4);
+  @media (max-width: 1350px) {
+  }
+  @media (max-width: to-unit(1425px)) {
     padding: ts(3) ts(3) ts(4) ts(3);
-    max-width: to-unit(900px);
+    max-width: 900px;
+    // padding: ts(2) ts(2) ts(4) ts(2);
+    // max-width: 950px;
   }
-  @media (max-width: to-unit(790px)) {
-    padding: ts(2) ts(2) ts(4) ts(2);
-  }
-  @media (max-width: to-unit(350px)) {
+  @media (max-width: to-unit(970px)) {
     padding: ts(1) ts(1) ts(4) ts(1);
+    max-width: 620px;
   }
+
+
   .title {
     margin-bottom: ts(1);
   }
