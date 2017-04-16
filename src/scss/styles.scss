@@ -10,31 +10,107 @@
 // import custom styling below!
 
 body {
-  font-family: "droid-sans-mono";
+  font-family: $font-stack;
+  font-weight: 200;
   mix-blend-mode: difference;
-    color: hsla(0, 100%, 60%, 80%);
+    // color: hsla(0, 100%, 60%, 80%);
     filter: hue-rotate(40deg);
 }
+$color-1: #93cc0e;
+$color-2: #2ab28d;
 
+.welcome {
+  position: relative;
+}
+
+.hue-text {
+  @supports (-webkit-background-clip: text) {
+    background: linear-gradient(-14deg, $color-1, $color-2);
+    background-position: 0px 0px;
+    background-origin: content-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  color: hsla(0, 0%, 40%, 100%);
+}
+
+.text--bold {
+  font-weight: 400;
+}
+.title,
+.sub-title,
+.copy {
+  transition: font-size 250ms ease-in-out, padding 250ms ease-in-out ;
+}
+
+.title {
+  font-size: ts(5);
+  @media (max-width: to-unit(1100px)) {
+    font-size: ts(4);
+  }
+  @media (max-width: to-unit(790px)) {
+    font-size: ts(3);
+  }
+}
+.sub-title {
+  font-size: ts(3);
+  line-height: 1.1;
+  margin-bottom: ts(0);
+  @media (max-width: to-unit(1100px)) {
+    font-size: ts(2);
+  }
+  @media (max-width: to-unit(790px)) {
+    font-size: ts(1);
+  }
+}
+.copy {
+  font-size: ts(2);
+  line-height: 1.25;
+  @media (max-width: to-unit(1100px)) {
+    font-size: ts(1);
+  }
+  @media (max-width: to-unit(790px)) {
+    font-size: ts(0);
+  }
+}
 .hue-rotate {
   animation: hue-rotate 180s linear infinite;
 }
-.background {
-  z-index: -1;
+.welcome__background {
   top: 0;
   left: 0;
   position: absolute;
-  // z-index: -10;
-  background: linear-gradient(-14deg, #B3FFAB , #43C6AC);
+  background: linear-gradient(-14deg,  rgba($color-1, 0.2), rgba($color-2, 0.2));
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  z-index: -1;
+}
+
+.welcome__copy {
+  max-width: to-unit(1200px);
+  padding: ts(4) ts(4) ts(5) ts(4);
+  @media (max-width: to-unit(970px)) {
+    padding: ts(3) ts(3) ts(4) ts(3);
+    max-width: to-unit(900px);
+  }
+  @media (max-width: to-unit(790px)) {
+    padding: ts(2) ts(2) ts(4) ts(2);
+  }
+  @media (max-width: to-unit(350px)) {
+    padding: ts(1) ts(1) ts(4) ts(1);
+  }
+  .title {
+    margin-bottom: ts(1);
+  }
 }
 
 @keyframes hue-rotate {
-  0% {
-    filter: hue-rotate();
+  from {
+    filter: hue-rotate(0deg);
   }
-  100% {
+  to {
     filter: hue-rotate(360deg);
   }
 }
+

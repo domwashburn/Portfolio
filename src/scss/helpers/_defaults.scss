@@ -1,12 +1,12 @@
 // ---------------------- //
 //  Typography Variables  //
 // ---------------------- //
-$type-base: 16px !default;
-$baseline-height: 1.68 !default;
-$ts-ratio: 1.2 !default;
+$type-base: 18px !default;
+$baseline-height: 1.65 !default;
+$ts-ratio: 1.414 !default;
 
-$font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Noto Sans", Noto, sans-serif !default;
-$font-family-monospace: "Andale Mono", AndaleMono, Consolas, monospace !default;
+$font-stack: "jaf-domus", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Noto Sans", Noto, sans-serif !default;
+$font-family-monospace: "droid-sans-mono", AndaleMono, Consolas, monospace !default;
 
 $__type-scale: (
 "custom": (
