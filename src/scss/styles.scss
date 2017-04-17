@@ -12,22 +12,30 @@
 body {
   font-family: $font-stack;
   font-weight: 200;
-  mix-blend-mode: difference;
-    // color: hsla(0, 100%, 60%, 80%);
-    filter: hue-rotate(40deg);
+  
+  // mix-blend-mode: difference;
 }
 $color-1: #93cc0e;
 $color-2: #2ab28d;
 
 .welcome {
   position: relative;
+  &:after {
+    position: absolute;
+    width: 100%;
+    height: ts(8);
+    content: "";
+    bottom: 0;
+    background: linear-gradient( hsla(0, 0%, 100%, 0%) 40%, hsla(0, 0%, 100%, 100%));
+    z-index: 1;
+  }
 }
 
 .hue-text {
   @supports (-webkit-background-clip: text) {
-    background: linear-gradient(-14deg, $color-1, $color-2);
     background-position: 0px 0px;
     background-origin: content-box;
+    background: linear-gradient(-14deg, $color-1, $color-2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -90,27 +98,90 @@ $color-2: #2ab28d;
   width: 100vw;
   height: 100%;
   z-index: -1;
+  filter:  brightness(1.75) saturate(130%);
 }
 
 .welcome__copy {
     max-width: 1300px;
-    padding: ts(4) ts(4) ts(5) ts(4);
+    padding: ts(4) ts(4) ts(6) ts(4);
   @media (max-width: 1350px) {
   }
   @media (max-width: to-unit(1425px)) {
-    padding: ts(3) ts(3) ts(4) ts(3);
+    padding: ts(3) ts(3) ts(6) ts(3);
     max-width: 900px;
     // padding: ts(2) ts(2) ts(4) ts(2);
     // max-width: 950px;
   }
   @media (max-width: to-unit(970px)) {
-    padding: ts(1) ts(1) ts(4) ts(1);
+    padding: ts(1) ts(1) ts(6) ts(1);
     max-width: 620px;
   }
 
 
   .title {
-    margin-bottom: ts(1);
+    margin-bottom: ts(2);
+  }
+}
+.welcome + .body {
+  transform: translateY(-(ts(5)));
+}
+.content {
+    padding: 0 ts(4);
+  @media (max-width: 1350px) {
+  }
+  @media (max-width: to-unit(1425px)) {
+    padding: 0 ts(3);
+  }
+  @media (max-width: to-unit(970px)) {
+    padding: 0 ts(1);
+  }
+}
+
+.socail-links__link svg {
+  margin-right: ts(0);
+  width: ts(1);
+  @media (min-width: to-unit(970px)) {
+    width: ts(2);
+  }
+  @media (min-width: to-unit(1425px)) {
+    width: ts(3);
+  }
+}
+
+a:focus {
+   outline: none;
+}
+
+[class^="icon--"] {
+  transition: all 150ms ease-out;
+  &:hover, &:focus {
+    transform: scale(1.1);
+    filter: saturate(200%);
+  }
+  &:active {
+    transform: scale(.95);
+  }
+}
+
+.icon--github {
+  fill: #6e5494;
+  transition: all 150ms ease-out;
+  &:hover, &:focus {
+    // fill: lighten(#6e5494, 20%);
+  }
+  &:active {
+    fill: darken(#6e5494, 15%);
+  }
+}
+
+.icon--linkedin {
+  fill: #0077B5;
+  transition: all 150ms ease-out;
+  &:hover, &:focus {
+    // fill: lighten(#6e5494, 20%);
+  }
+  &:active {
+    fill: darken(#0077B5, 15%);
   }
 }
 

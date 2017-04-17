@@ -138,7 +138,7 @@ module.exports = (env) => {
     new HtmlWebpackPlugin({
      filename: 'index.html',
      inject: 'body',
-     title: 'IBM Analytics Private Cloud :: Starter App',
+     title: 'domwashburn.com',
     //  favicon: `${paths.src}/images/favicon.ico`,
      template: './src/index.template.html',
      minify: {
