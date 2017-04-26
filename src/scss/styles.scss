@@ -5,47 +5,21 @@
 @import "helpers/functions";
 @import "helpers/defaults";
 @import "helpers/mixins";
-@import "helpers/typography";
+
+$color-1: #93cc0e;
+$color-2: #2ab28d;
 
 // import custom styling below!
 *, *:before, *:after { box-sizing: border-box; }
 body {
   font-family: $font-stack;
   font-weight: 200;
-  
-  // mix-blend-mode: difference;
-}
-$color-1: #93cc0e;
-$color-2: #2ab28d;
-
-.welcome {
-  position: relative;
-  &:after {
-    position: absolute;
-    width: 100%;
-    height: ts(8);
-    content: "";
-    bottom: 0;
-    background: linear-gradient( hsla(0, 0%, 100%, 0%) 40%, hsla(0, 0%, 100%, 100%));
-    z-index: 1;
-  }
-}
-
-.hue-text {
-  @supports (-webkit-background-clip: text) {
-    background-position: 0px 0px;
-    background-origin: content-box;
-    background: linear-gradient(-14deg, $color-1, $color-2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  color: hsla(0, 0%, 40%, 100%);
 }
 
 .text--bold {
   font-weight: 400;
 }
+
 .title,
 .sub-title,
 .copy {
@@ -87,43 +61,64 @@ $color-2: #2ab28d;
     font-size: ts(2);
   }
 }
+
+.hue-text {
+  @supports (-webkit-background-clip: text) {
+    background-position: 0px 0px;
+    background-origin: content-box;
+    background: linear-gradient(-14deg, $color-1, $color-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  color: hsla(0, 0%, 40%, 100%);
+}
+
 .hue-rotate {
   animation: hue-rotate 180s linear infinite;
 }
-.welcome__background {
-  top: 0;
-  left: 0;
-  position: absolute;
-  background: linear-gradient(-14deg,  rgba($color-1, 0.2), rgba($color-2, 0.2));
-  width: 100vw;
-  height: 100%;
+
+.welcome {
+  position: relative;
   z-index: -1;
-  filter:  brightness(1.75) saturate(130%);
 }
 
+
+.welcome__background{
+  &:before {
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: linear-gradient(-14deg,  rgba($color-1, 0.2), rgba($color-2, 0.2)),
+      linear-gradient( hsla(0, 0%, 100%, 0%) 39%, hsla(0, 0%, 100%, 100%));
+    width: 100vw;
+    height: 230%;
+    filter:  brightness(1.75) saturate(130%);
+  }
+}
 .welcome__copy {
     max-width: 1300px;
-    padding: ts(4) ts(4) ts(6) ts(4);
+    padding: ts(4) ts(4) ts(3) ts(4);
   @media (max-width: 1350px) {
   }
   @media (max-width: to-unit(1425px)) {
-    padding: ts(3) ts(3) ts(6) ts(3);
+    padding: ts(3) ts(3) ts(2) ts(3);
     max-width: 900px;
     // padding: ts(2) ts(2) ts(4) ts(2);
     // max-width: 950px;
   }
   @media (max-width: to-unit(970px)) {
-    padding: ts(1) ts(1) ts(6) ts(1);
+    padding: ts(1) ts(1) ts(1) ts(1);
     max-width: 620px;
   }
-
 
   .title {
     margin-bottom: ts(2);
   }
 }
 .welcome + .body {
-  transform: translateY(-(ts(5)));
+  // transform: translateY(-(ts(5)));
 }
 .content {
     padding: 0 ts(4);
@@ -137,8 +132,8 @@ $color-2: #2ab28d;
   }
 }
 
-.socail-links__link svg {
-  margin-right: ts(0);
+.social-links__link svg {
+  margin-right: ts(-1);
   width: ts(1);
   @media (min-width: to-unit(970px)) {
     width: ts(2);
@@ -193,4 +188,3 @@ a:focus {
     filter: hue-rotate(360deg);
   }
 }
-

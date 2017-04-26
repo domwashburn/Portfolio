@@ -138,7 +138,7 @@ module.exports = (env) => {
     new HtmlWebpackPlugin({
      filename: 'index.html',
      inject: 'body',
-     title: 'domwashburn.com',
+     title: 'Dom Washburn :: Welcome!',
     //  favicon: `${paths.src}/images/favicon.ico`,
      template: './src/index.template.html',
      minify: {
@@ -172,8 +172,8 @@ module.exports = (env) => {
   // after checking options for the build
   return {
     entry: !__PROD__
-      ? {'pc-starter-project': ['react-hot-loader/patch', resolvePath('./src/index.hot.jsx')]}
-      : {'pc-starter-project': resolvePath('./src/index.jsx')},
+      ? {'bundle': ['react-hot-loader/patch', resolvePath('./src/index.hot.jsx')]}
+      : {'bundle': resolvePath('./src/index.jsx')},
     output: {
       filename: !__PROD__
         ? '[name].js'
@@ -184,7 +184,7 @@ module.exports = (env) => {
         : resolvePath('dist')
     },
     resolve: {
-      extensions: [/*'',*/ '.js', '.jsx']
+      extensions: ['.js', '.jsx']
     },
     externals: !__PROD__
       ? []

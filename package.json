@@ -27,7 +27,7 @@
       }
     },
     "build:dist": {
-      "command": "rimraf dist; webpack --progress --env.extractText --env.sourcemap",
+      "command": "rimraf dist; webpack -p --progress --env.extractText",
       "env": {
         "NODE_ENV": "production"
       }
