@@ -1,10 +1,33 @@
 import React, { Component, PropTypes } from 'react';
 import Typekit from 'react-typekit';
 import './scss/styles.scss';
+import portrait_1x from './assets/images/dom-portrait.png';
+import portrait_1_5x from './assets/images/dom-portrait@1.5x.png';
+import portrait_2x from './assets/images/dom-portrait@2x.png';
 
 class App extends Component {
 
+  makeSrcSet(imageArray=[]) {
+    return imageArray.reduce((currentValue, srcObject, index) => {
+      let {imagePath, resolution} = srcObject;
+      console.log(`typeof array: ${typeof srcObject}`, srcObject);
+      console.log(`typeof array: ${typeof index}`, index);
+
+      if ( index > 0 ) {
+        return currentValue = `${currentValue}, ${imagePath} ${resolution}`;
+      }
+
+      return currentValue = `${imagePath}`;
+
+    }, '');
+  }
+
   render() {
+    let headerImageSrcSet = [
+      { imagePath: portrait_1x, resolution: '1x' },
+      { imagePath: portrait_1_5x, resolution: '1.5x' },
+      { imagePath: portrait_2x, resolution: '2x' },
+    ];
     return (
       <article>
         <header className="welcome hue-rotate hue-text">
@@ -15,7 +38,10 @@ class App extends Component {
             <p className="copy">I believe that beautiful web design is more than pixel deep, so I craft code and
       architecture as polished as the interfaces I’m creating.</p>
           </div>
-          <div className="welcome__background"></div>
+          <img className="welcome__image" srcSet={this.makeSrcSet(headerImageSrcSet)} />
+          <div className="welcome__background">
+
+          </div>
         </header>
         <main className="body">
         <nav className="social-links content">
