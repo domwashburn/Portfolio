@@ -28,7 +28,7 @@ const Welcome = () => {
     <div className="row">
       <header className="welcome hue-rotate row-content">
         <div className="welcome__copy hue-text">
-          <h1 className="title">Hey there, <span className="text--bold">I'm Dominick!</span></h1>
+          <h1 className="title">Hey there, <br /><span className="text--bold">I'm Dominick!</span></h1>
           <h2 className="sub-title">I’m a <span className="text--bold">UI Architect</span> and <span className="text--bold">Front End Developer.</span></h2>
           <h2 className="sub-title">I’m currently working for <span className="text--bold">IBM</span> as a <span className="text--bold">Front End Development Lead</span> on our <span className="text--bold">Private Cloud Analytics design team.</span></h2>
           <p className="copy">I believe that beautiful web design is more than pixel deep, so I craft code and

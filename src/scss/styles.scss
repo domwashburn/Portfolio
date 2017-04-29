@@ -60,7 +60,7 @@ body {
     font-size: ts(2);
   }
 }
-
+br {display: block;}
 .row {
   display: flex;
   flex-flow: row nowrap;
@@ -112,12 +112,14 @@ body {
   right: 0;
   top: 0;
   z-index: -200;
-  height: 130%;
-  transform: translateY(-10%) translateX(15%);
+  max-height: 112%;
+  max-width: 87%;
+  transform: translateY(-7%) translateX(ts(3));
 }
 .welcome__copy{
   transition: max-width 200ms ease-out;
   position: relative;
+  margin-right: ts(3);
   &:before {
     position: relative;
     height: 120%;
