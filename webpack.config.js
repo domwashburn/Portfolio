@@ -106,15 +106,40 @@ module.exports = (env) => {
 
   // image loader
 
-  rules.push(
-    {
+  let imageLoader;
+  if (__PROD__) {
+    imageLoader = {
       test: /\.(jpe?g|png|gif|svg)$/i,
       use: [
-        {loader: 'file-loader', options: {hash: 'sha512&digest=hex&name=[hash].[ext]'}},
-        {loader: 'image-webpack-loader', options: {bypassOnDebug: true, optimizationLevel: 7, interlaced:false}}
+        {
+          loader: 'file-loader',
+          options: {
+            hash: 'sha512&digest=hex&name=[hash].[ext]'
+          }
+        },{
+          loader: 'image-webpack-loader',
+          options: {
+            bypassOnDebug: true,
+            optipng: {
+              optimizationLevel: 7,
+            },
+            gifsicle: {
+              interlaced: true,
+            },
+          }
+        }
       ]
-    }
-);
+    };
+  } else {
+    imageLoader = {
+      test: /\.(jpg|png|svg)$/,
+      loader: 'url-loader',
+      options: {
+        limit: 25000,
+      },
+    };
+  }
+  rules.push(imageLoader);
 
 
   // --------- //

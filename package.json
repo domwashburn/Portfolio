@@ -47,7 +47,8 @@
     "npm-run-all": "^4.0.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-typekit": "^1.0.6"
+    "react-typekit": "^1.0.6",
+    "url-loader": "^0.5.8"
   },
   "devDependencies": {
     "babel": "^6.23.0",
