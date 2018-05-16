@@ -26,17 +26,18 @@ let headerImageSrcSet = [
 const Welcome = () => {
   return (
     <div className="row">
-      <header className="welcome hue-rotate row-content">
-        <div className="welcome__copy hue-text">
-          <h1 className="title">Hey there, <br /><span className="text--bold">I'm Dominick!</span></h1>
-          <h2 className="sub-title">I’m a <span className="text--bold">UI Architect</span> and <span className="text--bold">Front End Developer.</span></h2>
-          <h2 className="sub-title">I’m currently working for <span className="text--bold">IBM</span> as a <span className="text--bold">Front End Development Lead</span> on our <span className="text--bold">Private Cloud Analytics design team.</span></h2>
-          <p className="copy">I believe that beautiful web design is more than pixel deep, so I craft code and
-    architecture as polished as the interfaces I’m creating.</p>
-          <div className="welcome__background"></div>
-          <img className="welcome__image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" srcSet={makeSrcSet(headerImageSrcSet)} />
-        </div>
-      </header>
+      <div className="row-content">
+        <header className="welcome hue-rotate">
+          <div className="welcome__copy hue-text">
+            <h1 className="title">Hey there, <br /><span className="text--bold">I'm Dominick!</span></h1>
+            <h2 className="sub-title">I’m a <span className="text--bold">UX Engineer</span> and <span className="text--bold">Front End Developer.</span></h2>
+            <h2 className="sub-title">I’m currently <span className="text--bold">working for IBM</span> on our <span className="text--bold">Master Data Management products</span> in the <span className="text--bold">Hybrid Cloud Design Org.</span></h2>
+            <div className="welcome__background"></div>
+            <img className="welcome__image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" srcSet={makeSrcSet(headerImageSrcSet)} />
+          </div>
+        </header>
+        <p className="pull-quote">I believe that beautiful web design is more than pixel deep, so I craft code and architecture as polished as the interfaces I’m creating.</p>
+      </div>
     </div>
   );
 };

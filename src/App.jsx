@@ -10,8 +10,9 @@ class App extends Component {
     return (
       <article className="">
         <Welcome />
-        <main className="body">
-        <nav className="social-links content">
+        <main className="row">
+          <div className="row-content">
+        <nav className="social-links">
             <a className="social-links__link" href="https://www.linkedin.com/in/dominick-washburn-0a3b8742/" >
               <svg className="icon--linkedin" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="43px" height="43px" viewBox="0 0 43 43">
                 <path d="M36.6,36.6h-6.4v-10c0-2.4,0-5.4-3.3-5.4c-3.3,0-3.8,2.6-3.8,5.3v10.1h-6.4V16.1h6.1v2.8H23
@@ -30,6 +31,7 @@ class App extends Component {
               </svg>
             </a>
           </nav>
+        </div>
         </main>
         <Typekit kitId="fjf7erl" />
       </article>
